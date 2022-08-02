@@ -16,6 +16,7 @@ import {
 } from "../../components/Widgets";
 import { PageVisitsTable } from "../../components/Tables";
 import { trafficShares, totalOrders } from "../../data/charts";
+import { Routes } from "../../routes";
 
 export default () => {
  

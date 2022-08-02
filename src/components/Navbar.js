@@ -11,6 +11,7 @@ import { HashLink } from 'react-router-hash-link';
 
 import NOTIFICATIONS_DATA from "../data/notifications";
 import Profile3 from "../assets/img/team/profile-picture-3.jpg";
+import { Routes } from "../../routes";
 
 
 export default (props) => {
