@@ -11,7 +11,6 @@ import { HashLink } from 'react-router-hash-link';
 
 import NOTIFICATIONS_DATA from "../data/notifications";
 import Profile3 from "../assets/img/team/profile-picture-3.jpg";
-import { Routes } from "../../routes";
 
 
 export default (props) => {
@@ -57,9 +56,9 @@ export default (props) => {
         <div className="d-flex justify-content-between w-100">
           <div className="d-flex align-items-center">
       
-          <Button variant="outline-primary" size="sm">
+          <Button as={Link} to={Routes.CollectorInput.path} variant="outline-primary" size="sm">
             <plus/>
-            Create  a New CGP cycle
+            Create a New CGP cycle
           </Button>
           
        

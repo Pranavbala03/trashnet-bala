@@ -33,7 +33,11 @@ export default (props) => {
             
             <div className="d-flex justify-content-center">
               <Card.Link >
-         <row>  <button>Create a CGP cycle </button>
+         <row>  
+      <button as={Link} to={Routes.CollectorInput.path}>Create a CGP cycle</button>
+
+      {/* Buttons below need to be implemented! */}
+
       <button>Update a CGP cycle</button>
       <button>Upload a GST bill</button>
         
