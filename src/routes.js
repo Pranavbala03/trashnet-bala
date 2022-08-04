@@ -24,6 +24,7 @@ export const Routes = {
     ManufacturingProcess: { path: "/mobile/manufacturing-process" },
     GSTBill: { path: "/mobile/gst" },
 
+
     // docs
     DocsOverview: { path: "/documentation/overview" },
     DocsDownload: { path: "/documentation/download" },

@@ -5,7 +5,7 @@ import { Routes } from "../routes";
 // pages
 import Presentation from "./Presentation";
 import Upgrade from "./Upgrade";
-import DashboardOverview from "./dashboard/DashboardOverview";
+import DashboardOverview from "./dashboard/overview";
 import Transactions from "./Transactions";
 import Settings from "./Settings";
 import BootstrapTables from "./tables/BootstrapTables";
@@ -114,6 +114,7 @@ export default () => (
     <RouteWithLoader exact path={Routes.ManufacturingProcess.path} component={ManufacturingProcess} />
     <RouteWithLoader exact path={Routes.RecyclerInput.path} component={RecyclerInput} />
     <RouteWithLoader exact path={Routes.GSTBill.path} component={GSTBill} />
+
     <RouteWithLoader exact path={Routes.ForgotPassword.path} component={ForgotPassword} />
     <RouteWithLoader exact path={Routes.ResetPassword.path} component={ResetPassword} />
     <RouteWithLoader exact path={Routes.Lock.path} component={Lock} />

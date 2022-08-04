@@ -36,7 +36,15 @@ import ThemesbergLogo from "../assets/img/themesberg.svg";
 import ReactHero from "../assets/img/technologies/react-hero-logo.svg";
 import ProfilePicture from "../assets/img/team/profile-picture-3.jpg";
 
-export default (props = {}) => {
+
+export default () => { // Removing the sidebar content just for now; will add back l8r
+  return (
+    <>
+    </>
+  )
+}
+
+let original = (props = {}) => { // CHANGE THIS TO "export default" instead of "original"
   const location = useLocation();
   const { pathname } = location;
   const [show, setShow] = useState(false);
