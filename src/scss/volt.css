@@ -31080,7 +31080,7 @@ label {
 }
 .content {
   overflow: visible;
-  padding: 0 1rem 0 1rem;
+  padding: 0; /* Removed default padding, set to 0.*/
   transition: all 0.3s;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -31088,12 +31088,15 @@ label {
     transition: none;
   }
 }
+/*
+  Removed this margin-left part since it makes the dashboard all messy. 
 @media (min-width: 768px) {
-  .content {
+  .content {        
     margin-left: 260px;
   }
 }
 
+*/
 .sidebar-toggle {
   font-size: 1.3rem;
 }
