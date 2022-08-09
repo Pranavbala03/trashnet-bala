@@ -1,6 +1,5 @@
 import React from "react";
 import { Routes } from "../../routes";
-
 import { House, List, User, Plus } from "phosphor-react";
 import { Test } from "./test";
 import { ThemeProvider } from "@material-tailwind/react";
@@ -15,6 +14,7 @@ import {
 import Box from "@mui/material/Box";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import { Container, Link } from 'react-floating-action-button'
 
 export default () => {
   const [value, setValue] = React.useState(0);
@@ -38,7 +38,6 @@ export default () => {
           <span class="navbar-toggler-icon"></span>
         </button> */}
 
-        
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item active">
@@ -48,48 +47,60 @@ export default () => {
         </div>
       </nav>
 
+      <Container>
+            <Link href="#"
+                tooltip="Create note link"
+                icon="far fa-sticky-note" />
+            <Link href="#"
+                tooltip="Add user link"
+                icon="fas fa-user-plus" />
+               
+            <Button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false"
+                tooltip="The big plus button!"
+                rotate={true}
+                icon={<Plus size={32} />} />
+                
+        </Container>
+
       <h1> Good Morning John dove</h1>
       <div class="box-border h-32 w-32 p-4 border-4 ...">
-      <div className="d-grid gap-2">
-      {/* <Button  type="button" class="btn btn-primary" variant="primary" size="lg"> */}
-      <Button variant="primary">
-      <Plus size={32} />
-       <Typography>
-        Start CGP cycle
-        </Typography>
-      </Button>
-     
-    </div>
-    </div>
+        <div className="d-grid gap-2">
+          {/* <Button  type="button" class="btn btn-primary" variant="primary" size="lg"> */}
+          <Button variant="primary">
+            <Plus size={32} />
+            <Typography>Start CGP cycle</Typography>
+          </Button>
+        </div>
+      </div>
       <div class="box-border h-32 w-32 p-4 border-4 ...">
         <Card className="w-96">
-        <CardHeader floated={false} className="h-80"></CardHeader>
-        <CardBody className="text-center"></CardBody>
-        <CardFooter className="flex justify-center gap-7 pt-2"></CardFooter>
-      </Card>
-     </div>
-     <div class="box-border h-32 w-32 p-4 border-4 ...">
+          <CardHeader floated={false} className="h-80"></CardHeader>
+          <CardBody className="text-center"></CardBody>
+          <CardFooter className="flex justify-center gap-7 pt-2"></CardFooter>
+        </Card>
+      </div>
+      <div class="box-border h-32 w-32 p-4 border-4 ...">
         <Card className="w-96">
-        <CardHeader floated={false} className="h-80"></CardHeader>
-        <CardBody className="text-center"></CardBody>
-        <CardFooter className="flex justify-center gap-7 pt-2"></CardFooter>
-      </Card>
-     </div>
-     <div class="box-border h-32 w-32 p-4 border-4 ...">
+          <CardHeader floated={false} className="h-80"></CardHeader>
+          <CardBody className="text-center"></CardBody>
+          <CardFooter className="flex justify-center gap-7 pt-2"></CardFooter>
+        </Card>
+      </div>
+      <div class="box-border h-32 w-32 p-4 border-4 ...">
         <Card className="w-96">
-        <CardHeader floated={false} className="h-80"></CardHeader>
-        <CardBody className="text-center"></CardBody>
-        <CardFooter className="flex justify-center gap-7 pt-2"></CardFooter>
-      </Card>
-     </div>
-     <div class="box-border h-32 w-32 p-4 border-4 ...">
+          <CardHeader floated={false} className="h-80"></CardHeader>
+          <CardBody className="text-center"></CardBody>
+          <CardFooter className="flex justify-center gap-7 pt-2"></CardFooter>
+        </Card>
+      </div>
+      <div class="box-border h-32 w-32 p-4 border-4 ...">
         <Card className="w-96">
-        <CardHeader floated={false} className="h-80"></CardHeader>
-        <CardBody className="text-center"></CardBody>
-        <CardFooter className="flex justify-center gap-7 pt-2"></CardFooter>
-      </Card>
-     </div>
-      
+          <CardHeader floated={false} className="h-80"></CardHeader>
+          <CardBody className="text-center"></CardBody>
+          <CardFooter className="flex justify-center gap-7 pt-2"></CardFooter>
+        </Card>
+      </div>
+
       {/* bottom navigation */}
       <Box>
         <BottomNavigation
