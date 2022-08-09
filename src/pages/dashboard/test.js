@@ -6,15 +6,12 @@ import BottomNavigationAction from "@mui/material/BottomNavigationAction";;
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
-
 import Switch from "@mui/material/Switch";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
 import MenuItem from "@mui/material/MenuItem";
 import { List, User } from "phosphor-react";
-
 import Menu from '@mui/material/Menu';
-;
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -79,6 +76,10 @@ export class Test extends React.Component {
             <Toolbar>
            <IconButton>
             <List size={32} />
+            <typography
+            variant="h6">
+hi
+            </typography>
    
             <h1>Dashboard</h1>
            </IconButton>
