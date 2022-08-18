@@ -20,7 +20,7 @@ export default () => {
           </Col>
         </Row>
 
-        <Documentation
+        ocumentation
           title="Navbar"
           description=""
           scope={{ Nav, Card, Navbar, Container, ReactLogo: ReactLogoTransparent, Image }}
