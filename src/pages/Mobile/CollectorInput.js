@@ -69,7 +69,8 @@ export default () => {
   const { result1, uploader1 } = useDisplayImage();
 
   return (
-    <>
+   <>
+    
       <Navbar variant="light">
         <Container>
           <Button variant="outline-*">
@@ -234,15 +235,27 @@ export default () => {
                     />
                   </InputGroup>
                 </Form.Group>
+                <Form.Group className="mb-3" controlId="weight-collected">
                 <div className="d-grid gap-2">
                   <Button variant="primary" type="submit">
                     {" "}
                     Submit
                   </Button>
                 </div>
+                </Form.Group>
+                <Container>
+                <div className="d-grid gap-2">
+                  <Button variant="primary" type="submit">
+                    {" "}
+                    Submit
+                  </Button>
+                 
+                </div>
+                </Container>
               </Form>
             </Card.Body>
           </Card>
+
         </Container>
       </Stack>
       <Navbar fixed="bottom" className="bg-light">
