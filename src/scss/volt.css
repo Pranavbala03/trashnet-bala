@@ -1,3 +1,4 @@
+
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800&display=swap");
 /*!
@@ -7674,6 +7675,23 @@ textarea.form-control-lg {
 }
 .alert-soft-green .alert-link {
   color: #154f44;
+}
+ul#preview {
+  list-style: none;
+  margin: 25px auto;
+  padding: 0;
+  display: block;
+  max-width: 600px;
+}
+
+ul#preview li {
+  display: inline-block;
+  margin: 0 10px 10px;
+  max-width: 100px;
+}
+
+ul#preview li img {
+  width: 100%;
 }
 
 .alert-gray-100 {

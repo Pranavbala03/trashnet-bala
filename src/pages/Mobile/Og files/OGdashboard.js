@@ -13,9 +13,9 @@ import {
   SalesValueWidget,
   SalesValueWidgetPhone,
   AcquisitionWidget,
-} from "../../components/Widgets";
-import { PageVisitsTable } from "../../components/Tables";
-import { trafficShares, totalOrders } from "../../data/charts";
+} from "../../../components/Widgets";
+import { PageVisitsTable } from "../../../components/Tables";
+import { trafficShares, totalOrders } from "../../../data/charts";
 
 export default () => {
  

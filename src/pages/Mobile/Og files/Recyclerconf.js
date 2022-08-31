@@ -16,7 +16,7 @@ import {
     Container,
 } from "react-bootstrap";
 
-import { Routes } from "../../routes";
+import { Routes } from "../../../routes";
 import BgImage from "../../assets/img/illustrations/signin.svg";
 
 import {

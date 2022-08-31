@@ -21,9 +21,8 @@ import {
   Container,
 } from "react-bootstrap";
 
-import { Routes } from "../../routes";
+import { Routes } from "../../../routes";
 import BgImage from "../../assets/img/illustrations/signin.svg";
-
 import {
   faCameraRetro,
   faWeightHanging,
@@ -75,8 +74,7 @@ export default () => {
               to={Routes.DashboardOverview.path}
               className="text-gray-700"
             >
-              Back to
-              homepage
+              Back to homepage
             </Card.Link>
           </p>
           <Row
@@ -90,7 +88,7 @@ export default () => {
               <div className="mb-4 mb-lg-0 bg-white shadow-soft border rounded border-light p-4 p-lg-5 w-100 fmxw-500">
                 <div className="text-center text-md-center mb-4 mt-md-0">
                   {/* Header */}
-                  <h3 className="mb-0">GST</h3>
+                  <h3 className="mb-0">Recyler Input</h3>
                 </div>
                 <Form className="mt-4">
                   <div className="mt-3 mb-4 text-center"></div>
@@ -100,7 +98,7 @@ export default () => {
                       <Form.Label>Weight of Collected waste</Form.Label>
                       <InputGroup>
                         <InputGroup.Text>
-                         
+                  
                         </InputGroup.Text>
 
                         <Form.Control
@@ -134,7 +132,7 @@ export default () => {
                       className="btn-icon-only btn-pil text-dark"
                     >
                       SNAP!
-                    
+                   
                     </Button>
                     </div>
                     <div classname={'result' + (hasPhoto ? 'hasPhoto' : '')}>
@@ -191,7 +189,7 @@ export default () => {
                         capture="environment"
                       ></input>
 
-                  
+                    
                     </Button>
 
                     <Button>
@@ -203,7 +201,7 @@ export default () => {
                         capture="environment"
                       ></input>
 
-                     
+                   
                     </Button>
                     <Button>
                       <input
@@ -214,7 +212,7 @@ export default () => {
                         capture="environment"
                       ></input>
 
-                 
+                  
                     </Button>
                   </div>
                   {/* Vehicle No. */}

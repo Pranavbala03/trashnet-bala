@@ -11,7 +11,7 @@ import { IconButton, Typography, Input, Button } from "@material-tailwind/react"
 
 import { Col, Row, Card, FormCheck, Container } from "react-bootstrap";
 
-import { Routes } from "../../routes";
+import { Routes } from "../../../../routes";
 import BgImage from "../../assets/img/illustrations/signin.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
