@@ -8,17 +8,23 @@ import { Routes } from "../../routes";
 import BgImage from "../../assets/img/illustrations/signin.svg";
 
 //firebase
-import db from '../../firebase.config';
+import {db} from '../../firebase.config';
 import { doc, onSnapshot, collection, query, where,getDocs } from "firebase/firestore";
 import {useState,useEffect} from 'react';
 
 
+const initialFormData = Object.freeze({
+  password: "",
+  email: ""
+});
 
 
 
 export default () => {
 
   const q = query(collection(db, "users"));
+  const auth = getAuth();
+  const [formData, updateFormData] = useState(initialFormData);
 
   const [users,setUsers]=useState([])
   useEffect(() => {
@@ -32,6 +38,37 @@ export default () => {
       console.log(doc.id, " => ", doc.data());
     });
   }
+
+
+
+  const handleChange = (e) => {
+    console.log("handleChange called")
+    updateFormData({
+      ...formData,
+
+      // Trimming any whitespace
+      [e.target.name]: e.target.value.trim()
+    });
+    
+  };
+  const logInWithEmailAndPassword = async () => {
+    var res = null
+    // console.log(formData)
+    try {
+      const email = String(formData.email)
+      const password = String(formData.password)
+      console.log(email, password)
+      res = await signInWithEmailAndPassword(auth, email, password);
+    } catch (err) {
+      console.error(err);
+      alert(err.message);
+    }
+    finally {
+      const user = res.user;
+      console.log(user)
+      history.push("/dashboard/overview");
+    }
+  };
 
 
   return (
@@ -56,7 +93,7 @@ export default () => {
                       <InputGroup.Text>
                         <FontAwesomeIcon icon={faEnvelope} />
                       </InputGroup.Text>
-                      <Form.Control autoFocus required type="email" placeholder="example@company.com" />
+                      <Form.Control autoFocus required type="email"  onChange={handleChange} placeholder="example@company.com" />
                     </InputGroup>
                   </Form.Group>
                   <Form.Group>
@@ -66,7 +103,7 @@ export default () => {
                         <InputGroup.Text>
                           <FontAwesomeIcon icon={faUnlockAlt} />
                         </InputGroup.Text>
-                        <Form.Control required type="password" placeholder="Password" />
+                        <Form.Control required type="password"  onChange={handleChange} placeholder="Password" />
                       </InputGroup>
                     </Form.Group>
                     <div className="d-flex justify-content-between align-items-center mb-4">
@@ -80,7 +117,7 @@ export default () => {
                   {/* <Button variant="primary" type="submit" className="w-100">
                     Sign in
                   </Button> */}
-                  <Button variant="primary" as={Link} to={Routes.DashboardOverview.path} className="w-100">
+                  <Button variant="primary" onClick={logInWithEmailAndPassword} className="w-100">
                   Login 
                   </Button>
                 </Form>

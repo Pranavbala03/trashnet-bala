@@ -11,7 +11,7 @@ import BgImage from "../../assets/img/illustrations/signin.svg";
 
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
-import db from '../../firebase.config';
+import {db} from '../../firebase.config';
 
 const initialFormData = Object.freeze({
   username: "",

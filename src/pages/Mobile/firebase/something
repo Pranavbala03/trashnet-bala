@@ -1,0 +1,304 @@
+// Pranavbala import React, { useState, useEffect, } from "react";
+// import { db } from "../../../firebase.config";
+// import Mobilebottomnavbar from "../../datacomponents/navbar-bottom-mobile";
+// import { storage } from "../../../firebase.config";
+// import { ref, uploadBytes } from "firebase/storage";
+// import { addDoc, getDocs, getDoc, collection, QuerySnapshot } from "firebase/firestore";
+// import { app } from "../../../firebase.config";
+// import { doc, onSnapshot } from "firebase/firestore";
+
+// import {
+//     Navbar,
+//     Container,
+//     Button,
+//     Image,
+//     Row,
+//     Col,
+//     Stack,
+//     Figure,
+//     Form,
+//     Card,
+//     InputGroup,
+// } from "react-bootstrap";
+// import { Link } from "react-router-dom";
+// import { Routes } from "../../../routes";
+// import { async } from "@firebase/util";
+// import { ContactSupportOutlined, ListSharp, PostAddSharp } from "@material-ui/icons";
+// import { query } from "chartist";
+
+
+// export default () => {
+//     //     const [imageUpload, setImageupload] = useState(null)
+//     //     const [lists, setLists] = useState([]);
+
+//     //     //image stuff
+//     //     const uploadimage = () => {
+//     //         if (imageUpload === null) return;
+//     //         const imageRef = ref(storage, `images/${imageUpload.name}`)
+//     //         uploadBytes(imageRef, imageUpload).then(() => {
+//     //             alert("Uploaded")
+//     //         })
+
+//     //     }
+//     //     const testRef = collection(db, 'test')
+
+//     // // render data
+//     //     useEffect(() => {
+//     //         const pleaseWork = async () => {
+//     //             const querySnapshot = await getDocs(query(testRef));
+//     //             setLists(querySnapshot.docs.map((doc) => [{...doc.data(), id: doc.id}]))
+//     //         }
+//     //         pleaseWork();
+
+//     //     })
+//     //     console.log("dogfish")
+
+//     // console.log(testRef)
+//     // useEffect(() => {
+//     //     const getData = [];
+//     //     const pleaseWork = db.collection("test").onSnapshot((querySnapshot) => {
+//     //         querySnapshot.forEach((doc) => {
+//     //             getData.push({
+//     //                 ...doc.data(),
+//     //                 key: doc.id,
+//     //             });
+
+//     //         });
+//     //         setLists(getData);
+//     //     });
+//     //     return () => subscriber();
+//     //     console.log(lists)
+//     // const [list, setList] = useState([]);
+//     const [user, setUser] = useState([]);
+//     const [transactionCardList, setTransactionCardList] = useState([])
+//     //list of tuples, 1) id, 2) collector/recycler/manufacturer data
+//     const cycleList = []
+
+//     //list of tuples, 1) cycle id, 2) list of transaction objects (max len 4)
+//     const transactionList = []
+
+
+//     // @@ -76,6 +112,62 @@ export default () => {
+
+
+
+//     // const history = useHistory();
+
+//     const searchTransactions = async (cycle_id) => {
+
+
+//         var transactionInfo = []
+//         const q = query(collection(db, "transactions"), where("cycle_id", "==", cycle_id));
+//         const querySnapshot = await getDocs(q);
+//         querySnapshot.forEach((doc) => {
+//             // store doc ids into array, then search for all records in transactions for each doc id.
+//             console.log(doc.id, " => ", doc.data());
+//             var singleTransactionData = [doc.id, doc.data()]
+//             transactionInfo.push(singleTransactionData)
+//         });
+//         transactionList.push([cycle_id, transactionInfo])
+
+//         console.log(transactionList)
+//     }
+
+
+//     useEffect(() => {
+
+//         const getRelevantTransactions = async () => {
+//             if (user) {
+//                 //get user data
+//                 //search transactions collection for collector_id
+//                 const q = collection(db, "test")
+//                 const querySnapshot = await getDocs(q);
+//                 querySnapshot.forEach((doc) => {
+//                     // store doc ids into array, then search for all records in transactions for each doc id.
+//                     console.log(doc.id, " => ", doc.data());
+
+//                     cycleList.push([doc.id, doc.data()])
+//                 });
+
+
+//                 for (const cycle of cycleList) {
+//                     console.log(cycle[0])
+//                     await searchTransactions(cycle[0])
+//                 }
+//                 setTransactionCardList(transactionList.map(txn => {
+//                     <DashboardCard cycle_id={txn[0]}></DashboardCard>
+//                 }))
+//                 console.log(transactionList.length)
+
+//             }
+
+
+//         }
+
+//         getRelevantTransactions().catch(console.error);
+
+//     }, [user])
+
+
+
+
+//     // }, [])
+
+//     return (
+//         <div>
+//             <pre>{JSON.stringify(cycleList, null, 2) }</pre>
+//          {cycleList.map ((list)=> <div key={cycleList.key}>{cycleList.title}</div>)}
+
+//         </div>
+//     )
+// }
+
+// import React, { useState, useEffect, } from "react";
+// import { db } from "../../../firebase.config";
+// import Mobilebottomnavbar from "../../datacomponents/navbar-bottom-mobile";
+// import { storage } from "../../../firebase.config";
+// import { ref, uploadBytes } from "firebase/storage";
+// import { addDoc, getDocs, getDoc, collection, QuerySnapshot } from "firebase/firestore";
+// import { app } from "../../../firebase.config";
+// import { doc, onSnapshot } from "firebase/firestore";
+
+// import {
+//     Navbar,
+//     Container,
+//     Button,
+//     Image,
+//     Row,
+//     Col,
+//     Stack,
+//     Figure,
+//     Form,
+//     Card,
+//     InputGroup,
+// } from "react-bootstrap";
+// import { Link } from "react-router-dom";
+// import { Routes } from "../../../routes";
+// import { async } from "@firebase/util";
+// import { ContactSupportOutlined, ListSharp, PostAddSharp } from "@material-ui/icons";
+// import { query } from "chartist";
+
+
+// export default () => {
+//     //     const [imageUpload, setImageupload] = useState(null)
+//     //     const [lists, setLists] = useState([]);
+
+//     //     //image stuff
+//     //     const uploadimage = () => {
+//     //         if (imageUpload === null) return;
+//     //         const imageRef = ref(storage, `images/${imageUpload.name}`)
+//     //         uploadBytes(imageRef, imageUpload).then(() => {
+//     //             alert("Uploaded")
+//     //         })
+
+//     //     }
+//     //     const testRef = collection(db, 'test')
+
+//     // // render data
+//     //     useEffect(() => {
+//     //         const pleaseWork = async () => {
+//     //             const querySnapshot = await getDocs(query(testRef));
+//     //             setLists(querySnapshot.docs.map((doc) => [{...doc.data(), id: doc.id}]))
+//     //         }
+//     //         pleaseWork();
+
+//     //     })
+//     //     console.log("dogfish")
+
+//     // console.log(testRef)
+//     // useEffect(() => {
+//     //     const getData = [];
+//     //     const pleaseWork = db.collection("test").onSnapshot((querySnapshot) => {
+//     //         querySnapshot.forEach((doc) => {
+//     //             getData.push({
+//     //                 ...doc.data(),
+//     //                 key: doc.id,
+//     //             });
+
+//     //         });
+//     //         setLists(getData);
+//     //     });
+//     //     return () => subscriber();
+//     //     console.log(lists)
+//     // const [list, setList] = useState([]);
+//     const [user, setUser] = useState([]);
+//     const [transactionCardList, setTransactionCardList] = useState([])
+//     //list of tuples, 1) id, 2) collector/recycler/manufacturer data
+//     const cycleList = []
+
+//     //list of tuples, 1) cycle id, 2) list of transaction objects (max len 4)
+//     const transactionList = []
+
+
+//     // @@ -76,6 +112,62 @@ export default () => {
+
+
+
+//     // const history = useHistory();
+
+//     const searchTransactions = async (cycle_id) => {
+
+
+//         var transactionInfo = []
+//         const q = query(collection(db, "transactions"), where("cycle_id", "==", cycle_id));
+//         const querySnapshot = await getDocs(q);
+//         querySnapshot.forEach((doc) => {
+//             // store doc ids into array, then search for all records in transactions for each doc id.
+//             console.log(doc.id, " => ", doc.data());
+//             var singleTransactionData = [doc.id, doc.data()]
+//             transactionInfo.push(singleTransactionData)
+//         });
+//         transactionList.push([cycle_id, transactionInfo])
+
+//         console.log(transactionList)
+//     }
+
+
+//     useEffect(() => {
+
+//         const getRelevantTransactions = async () => {
+//             if (user) {
+//                 //get user data
+//                 //search transactions collection for collector_id
+//                 const q = collection(db, "test")
+//                 const querySnapshot = await getDocs(q);
+//                 querySnapshot.forEach((doc) => {
+//                     // store doc ids into array, then search for all records in transactions for each doc id.
+//                     console.log(doc.id, " => ", doc.data());
+
+//                     cycleList.push([doc.id, doc.data()])
+//                 });
+
+
+//                 for (const cycle of cycleList) {
+//                     console.log(cycle[0])
+//                     await searchTransactions(cycle[0])
+//                 }
+//                 setTransactionCardList(transactionList.map(txn => {
+//                     <DashboardCard cycle_id={txn[0]}></DashboardCard>
+//                 }))
+//                 console.log(transactionList.length)
+
+//             }
+
+
+//         }
+
+//         getRelevantTransactions().catch(console.error);
+
+//     }, [user])
+
+
+
+
+//     // }, [])
+
+//     return (
+//         <div>
+//             <pre>{JSON.stringify(cycleList, null, 2) }</pre>
+//          {cycleList.map ((list)=> <div key={cycleList.key}>{cycleList.title}</div>)}
+
+//         </div>
+//     )
+// }
+

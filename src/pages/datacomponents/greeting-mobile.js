@@ -27,7 +27,9 @@ import {
   Clock,
 } from "phosphor-react";
 import { Link } from "react-router-dom";
-
+import Dtime from "./time";
+import Dfate from "./date"
+import Dday from "./day";
 import { HashLink } from "react-router-hash-link";
 const Greetings = () => {
   return (
@@ -40,19 +42,19 @@ const Greetings = () => {
             <Container>
               {" "}
               <Typography variant="lead"> Today's</Typography>
-              <Typography variant="h6">Weight</Typography>
+              <Dday />
             </Container>
             <div className="vr" style={{ color: "white" }} />
             <Container>
               {" "}
-              <Typography variant="lead"> Date's</Typography>
-              <Typography variant="h6">15/07/14</Typography>
+              <Typography variant="lead"> Date</Typography>
+              <Dfate />
             </Container>
             <div className="vr" style={{ color: "white" }} />
             <Container>
               {" "}
               <Typography variant="lead">Time</Typography>
-              <Typography variant="h6">10:22</Typography>
+              <Dtime />
             </Container>
           </Stack>
         </Row>
