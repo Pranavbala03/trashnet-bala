@@ -67,6 +67,10 @@ export default () => {
             {" "}
             View Input Cycle{" "}
           </Button>
+          <Button as={Link} to={Routes.Firebasecry.path}>
+            {" "}
+            Please work Firebase{" "}
+          </Button>
         </Stack>
       </Container>
     </>

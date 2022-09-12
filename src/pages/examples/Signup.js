@@ -13,52 +13,52 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
 import db from '../../firebase.config';
 
-const initialFormData = Object.freeze({
-  userName: "",
-  password: "",
-  email: "",
-  confPass: ""
-});
+// const initialFormData = Object.freeze({
+//   userName: "",
+//   password: "",
+//   email: "",
+//   confPass: ""
+// });
 
 export default () => {
 
-  const auth = getAuth();
-  const [formData, updateFormData] = useState(initialFormData);
+  // const auth = getAuth();
+  // const [formData, updateFormData] = useState(initialFormData);
 
-  const handleChange = (e) => {
-    console.log("handleChange called")
-    updateFormData({
-      ...formData,
+  // const handleChange = (e) => {
+  //   console.log("handleChange called")
+  //   updateFormData({
+  //     ...formData,
 
-      // Trimming any whitespace
-      [e.target.name]: e.target.value.trim()
-    });
-  };
+  //     // Trimming any whitespace
+  //     [e.target.name]: e.target.value.trim()
+  //   });
+  // };
   
 
-  const handleSubmit = async () => {
-    console.log("handlesubmit called")
+  // const handleSubmit = async () => {
+  //   console.log("handlesubmit called")
 
-    console.log(formData.password);
-    // const passMatch = checkPassMatch(formData.password, formData.confPass)
-    // const passLength = 
+  //   console.log(formData.password);
+  //   // const passMatch = checkPassMatch(formData.password, formData.confPass)
+  //   // const passLength = 
 
-    const email = String(formData.email)
-    const password = String(formData.password)
-    const name = String(formData.userName)
-    console.log(formData.email);
-    console.log(formData.confirmPassword);
-    //add form validation
-    const res = await createUserWithEmailAndPassword(auth, email, password);
-    const user = res.user;
-    await addDoc(collection(db, "users"), {
-      uid: user.uid,
-      name: name,
-      authProvider: "local",
-      email,
-    });
+  //   const email = String(formData.email)
+  //   const password = String(formData.password)
+  //   const name = String(formData.userName)
+  //   console.log(formData.email);
+  //   console.log(formData.confirmPassword);
+  //   //add form validation
+  //   const res = await createUserWithEmailAndPassword(auth, email, password);
+  //   const user = res.user;
+  //   await addDoc(collection(db, "users"), {
+  //     uid: user.uid,
+  //     name: name,
+  //     authProvider: "local",
+  //     email,
+  //   });
 
-  };
+  // };
   
 
   return (

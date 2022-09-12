@@ -14,7 +14,6 @@ import {
 import Box from "@mui/material/Box";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import { Container, Link } from 'react-floating-action-button'
 
 export default () => {
   const [value, setValue] = React.useState(0);

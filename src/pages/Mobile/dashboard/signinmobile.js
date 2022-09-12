@@ -13,9 +13,10 @@ import { Link } from "react-router-dom";
 import { Routes } from "../../../routes";
 import { EnvelopeOpen, Password } from "phosphor-react";
 import { Typography } from "@material-tailwind/react";
-
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useHistory } from 'react-router-dom';
 //firebase
-import db from "../../../firebase.config";
+import { db } from "../../../firebase.config";
 import {
   doc,
   onSnapshot,
@@ -26,8 +27,18 @@ import {
 } from "firebase/firestore";
 import { useState, useEffect } from "react";
 
+const initialFormData = Object.freeze({
+  password: "",
+  email: ""
+});
+
+
+
 export default () => {
   const q = query(collection(db, "users"));
+  const auth = getAuth();
+  const [formData, updateFormData] = useState(initialFormData);
+  const history = useHistory();
 
   const [users, setUsers] = useState([]);
   useEffect(() => {
@@ -35,12 +46,66 @@ export default () => {
   }, []);
   const fetchUsers = async () => {
     const querySnapshot = await getDocs(q);
-    console.log(querySnapshot);
-    querySnapshot.forEach((doc) => {
+    // console.log(querySnapshot);
+    // querySnapshot.forEach((doc) => {
       // doc.data() is never undefined for query doc snapshots
-      console.log(doc.id, " => ", doc.data());
-    });
+      // console.log(doc.id, " => ", doc.data());
+    // });
   };
+
+
+  const handleChange = (e) => {
+    console.log("handleChange called")
+    updateFormData({
+      ...formData,
+
+      // Trimming any whitespace
+      [e.target.name]: e.target.value.trim()
+    });
+    
+  };
+
+  
+ 
+
+  const logInWithEmailAndPassword = async () => {
+    var res = null
+    console.log(formData)
+    try {
+      const email = String(formData.email)
+      const password = String(formData.password)
+      console.log(email, password)
+      res = await signInWithEmailAndPassword(auth, email, password);
+      console
+    } catch (err) {
+      console.error(err);
+      alert(err.message);
+    }
+    finally {
+      const user = res.user;
+      console.log(user)
+      history.push("/mobile/dashboard/mobiledashboard");
+      
+    }
+  };
+
+  
+ 
+
+  // const q = query(collection(db, "users"));
+
+  // const [users, setUsers] = useState([]);
+  // useEffect(() => {
+  //   fetchUsers();
+  // }, []);
+  // const fetchUsers = async () => {
+  //   const querySnapshot = await getDocs(q);
+  //   console.log(querySnapshot);
+  //   querySnapshot.forEach((doc) => {
+  //     // doc.data() is never undefined for query doc snapshots
+  //     console.log(doc.id, " => ", doc.data());
+  //   });
+  // };
 
   return (
     <main>
@@ -72,6 +137,8 @@ export default () => {
                         required
                         type="email"
                         placeholder="example@company.com"
+                        name="email"
+                        onChange={handleChange}
                       />
                     </InputGroup>
                   </Form.Group>
@@ -87,7 +154,9 @@ export default () => {
                         <Form.Control
                           required
                           type="password"
+                          name="password"
                           placeholder="Password"
+                          onChange={handleChange}
                         />
                       </InputGroup>
                     </Form.Group>
@@ -111,8 +180,7 @@ export default () => {
                   </Button> */}
                   <Button
                     variant="primary"
-                    as={Link}
-                    to={Routes.mobiledashboard.path}
+                    onClick={logInWithEmailAndPassword}
                     className="w-100"
                   >
                     Login

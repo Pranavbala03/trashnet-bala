@@ -15,13 +15,15 @@ export const Routes = {
   Lock: { path: "/examples/lock" },
   NotFound: { path: "/examples/404" },
   ServerError: { path: "/examples/500" },
-
+//desktop 
+  ledger: {path:"/Desktop/ledger"},
   // mobile
   mobiledashboard: { path: "/mobile/dashboard/mobiledashboard" },
   Formhotkey: { path: "/mobile/dashboard/formhotkeys" },
   mobileprofile: { path: "/mobile/dashboard/mobileprofile" },
   signinmobile: { path: "/mobile/dashboard/signinmobile" },
   // form
+  Firebasecry: {path: "/mobile/firebase/testbyfire"},
   CollectorInput: { path: "/mobile/Forms/Collectorinput" },
   RecyclerConfirmation: { path: "/mobile/Forms/recyclerconfirmation" },
   RecyclerInput: { path: "/mobile/dashboard/Forms/recyclerinput" },
